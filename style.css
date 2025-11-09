@@ -1,0 +1,587 @@
+/* ============================================
+   Aplikacja ToDo - Dodatkowe style CSS
+   Czarno-biały motyw (z żółtym i cyjanowym dla przycisków)
+   ============================================ */
+
+/* Ogólne style - Czarno-białe */
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.container {
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+/* Style dla kart - Czarno-białe */
+.card {
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background-color: #1e1e1e;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    transition: box-shadow 0.3s ease;
+    color: #e0e0e0;
+}
+
+.card:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+}
+
+.card-content {
+    color: #e0e0e0;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+/* Style dla zadań */
+.task-item {
+    margin-bottom: 15px;
+    animation: fadeIn 0.3s ease-in;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.task-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Animacja pojawiania się */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animacja usuwania */
+.task-item.removing {
+    animation: fadeOut 0.3s ease-out forwards;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+}
+
+/* Style dla zakończonych zadań - Czarno-białe */
+.completed-task {
+    opacity: 0.6;
+    background-color: #1a1a1a;
+}
+
+.completed-task .task-title,
+.completed-task .task-description {
+    color: #757575;
+}
+
+.strikethrough {
+    text-decoration: line-through;
+}
+
+/* Style dla przeterminowanych zadań - Czarno-białe */
+.overdue-task {
+    border-left: 4px solid #757575;
+    background-color: #2a2a2a;
+}
+
+.overdue-task:not(.completed-task) {
+    background-color: #2a2a2a;
+}
+
+/* Style dla priorytetów - Czarno-białe */
+.priority-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    margin-left: 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    vertical-align: middle;
+}
+
+.priority-low {
+    background-color: #616161;
+    color: #e0e0e0;
+}
+
+.priority-medium {
+    background-color: #9e9e9e;
+    color: #212121;
+}
+
+.priority-high {
+    background-color: #424242;
+    color: #ffffff;
+}
+
+/* Style dla tytułu zadania */
+.task-title {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.task-description {
+    margin-top: 10px;
+    color: #b0b0b0;
+    line-height: 1.6;
+}
+
+/* Style dla metadanych zadania */
+.task-meta {
+    font-size: 0.9rem;
+}
+
+.task-meta p {
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+}
+
+.task-meta i.material-icons {
+    margin-right: 5px;
+    font-size: 16px;
+}
+
+/* Style dla filtrów */
+.chip-container {
+    margin-top: 10px;
+}
+
+.filter-chip {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.filter-chip:hover {
+    transform: scale(1.05);
+}
+
+.filter-chip.active {
+    background-color: #616161;
+    color: white;
+}
+
+.filter-chip.active i {
+    color: white;
+}
+
+/* Czarno-białe dla chipów */
+.chip {
+    background-color: #2d2d2d;
+    color: #e0e0e0;
+}
+
+/* Style dla formularza - Czarno-białe */
+.input-field {
+    margin-top: 0;
+}
+
+.input-field label {
+    font-size: 0.9rem;
+    color: #9e9e9e;
+}
+
+.input-field input[type=text],
+.input-field textarea,
+.input-field input[type=text]:not(.browser-default),
+.input-field textarea:not(.browser-default) {
+    color: #e0e0e0;
+    border-bottom: 1px solid #424242;
+}
+
+.input-field input[type=text]:focus + label,
+.input-field textarea:focus + label {
+    color: #9e9e9e;
+}
+
+.input-field input[type=text]:focus,
+.input-field textarea:focus {
+    border-bottom: 1px solid #9e9e9e;
+    box-shadow: 0 1px 0 0 #9e9e9e;
+}
+
+.input-field input[type=text].valid,
+.input-field textarea.valid {
+    border-bottom: 1px solid #757575;
+    box-shadow: 0 1px 0 0 #757575;
+}
+
+.input-field input[type=text].invalid,
+.input-field textarea.invalid {
+    border-bottom: 1px solid #616161;
+    box-shadow: 0 1px 0 0 #616161;
+}
+
+/* Style dla przycisków */
+.btn, .btn-small {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.btn:hover, .btn-small:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Style dla licznika zadań */
+#activeTasksCount {
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+/* Style dla wyszukiwarki */
+#searchInput {
+    font-size: 1.1rem;
+}
+
+/* Style dla sortowania */
+#sortSelect {
+    margin-top: 10px;
+}
+
+/* Style dla eksportu/importu */
+.file-field {
+    margin-top: 10px;
+}
+
+/* Responsywność */
+@media only screen and (max-width: 600px) {
+    .container {
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    .card-title {
+        font-size: 1.2rem;
+    }
+
+    .task-title {
+        font-size: 1.1rem;
+    }
+
+    .btn, .btn-small {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .chip-container {
+        text-align: center;
+    }
+
+    .filter-chip {
+        display: inline-block;
+        margin: 5px;
+    }
+}
+
+/* Style dla pustej listy - Czarno-białe */
+#tasksList p {
+    padding: 40px 20px;
+    font-size: 1.1rem;
+    color: #9e9e9e;
+}
+
+/* Style dla checkboxa */
+.task-checkbox {
+    margin-top: 5px;
+}
+
+/* Poprawki dla Materialize */
+nav .brand-logo {
+    font-size: 1.5rem;
+}
+
+nav .brand-logo i {
+    font-size: 2rem;
+    line-height: 56px;
+}
+
+/* Style dla modala - Czarno-białe */
+.modal {
+    border-radius: 8px;
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+}
+
+.modal-content {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+}
+
+.modal-content h4 {
+    color: #ffffff;
+}
+
+.modal-footer {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    background-color: #1e1e1e;
+}
+
+.modal-footer a {
+    color: #9e9e9e;
+}
+
+/* Dodatkowe efekty wizualne */
+.task-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.task-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+}
+
+.task-item.priority-high::before {
+    background-color: #424242;
+}
+
+.task-item.priority-medium::before {
+    background-color: #757575;
+}
+
+.task-item.priority-low::before {
+    background-color: #9e9e9e;
+}
+
+/* Style dla pustego stanu - Czarno-białe */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: #757575;
+}
+
+.empty-state i {
+    font-size: 64px;
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
+/* Poprawki dla datepicker - Czarno-białe */
+.datepicker-date-display {
+    background-color: #424242;
+}
+
+.datepicker-calendar-container {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+}
+
+.datepicker-table td {
+    color: #e0e0e0;
+}
+
+.datepicker-table td.is-selected {
+    background-color: #616161;
+    color: white;
+}
+
+.datepicker-table td.is-today {
+    color: #9e9e9e;
+}
+
+.datepicker-cancel,
+.datepicker-done {
+    color: #9e9e9e;
+}
+
+.datepicker-cancel:hover,
+.datepicker-done:hover {
+    background-color: #2d2d2d;
+}
+
+/* Style dla select dropdown - Czarno-białe */
+.select-wrapper input.select-dropdown {
+    color: #e0e0e0;
+    border-bottom: 1px solid #424242;
+}
+
+.select-wrapper input.select-dropdown:focus {
+    border-bottom: 1px solid #9e9e9e;
+}
+
+.dropdown-content {
+    background-color: #1e1e1e;
+}
+
+.dropdown-content li > span {
+    color: #e0e0e0;
+}
+
+.dropdown-content li > span:hover {
+    background-color: #2d2d2d;
+}
+
+.dropdown-content li.selected > span {
+    background-color: #616161;
+    color: white;
+}
+
+/* Animacje dla toast notifications - Czarno-białe */
+#toast-container {
+    top: auto !important;
+    right: auto !important;
+    bottom: 10%;
+    left: 7%;
+}
+
+#toast-container .toast {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    border-left: 4px solid #9e9e9e;
+}
+
+#toast-container .toast.green {
+    border-left-color: #757575;
+}
+
+#toast-container .toast.red {
+    border-left-color: #616161;
+}
+
+#toast-container .toast.orange {
+    border-left-color: #757575;
+}
+
+/* Poprawki dla lepszej czytelności */
+.task-meta strong {
+    margin-right: 5px;
+}
+
+/* Style dla lepszego wyróżnienia ważnych elementów - Czarno-białe */
+.overdue-task .task-title {
+    color: #b0b0b0;
+    font-weight: 600;
+}
+
+/* Smooth scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Dodatkowe style dla dark mode */
+input[type="text"]:not(.browser-default),
+textarea:not(.browser-default) {
+    color: #e0e0e0;
+}
+
+input[type="text"]:not(.browser-default):focus:not([readonly]),
+textarea:not(.browser-default):focus:not([readonly]) {
+    border-bottom: 1px solid #9e9e9e;
+    box-shadow: 0 1px 0 0 #9e9e9e;
+}
+
+input[type="text"]:not(.browser-default):focus:not([readonly]) + label,
+textarea:not(.browser-default):focus:not([readonly]) + label {
+    color: #9e9e9e;
+}
+
+/* Style dla file input - Czarno-białe */
+.file-path-wrapper input {
+    color: #e0e0e0;
+    border-bottom: 1px solid #424242;
+}
+
+/* Style dla badge w nav - Czarno-białe */
+.badge {
+    background-color: #616161;
+}
+
+/* Poprawki dla lepszej widoczności w czarno-białym */
+.task-meta {
+    color: #b0b0b0;
+}
+
+.task-meta .red-text {
+    color: #b0b0b0 !important;
+}
+
+.task-meta .grey-text {
+    color: #9e9e9e !important;
+}
+
+/* Placeholder dla inputów - Czarno-białe */
+input::placeholder,
+textarea::placeholder {
+    color: #757575 !important;
+    opacity: 1;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+    color: #757575 !important;
+    opacity: 1;
+}
+
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+    color: #757575 !important;
+    opacity: 1;
+}
+
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+    color: #757575 !important;
+    opacity: 1;
+}
+
+/* Style dla checkbox w czarno-białym */
+[type="checkbox"].filled-in:checked + span:not(.lever):before {
+    border-right: 2px solid #9e9e9e;
+    border-bottom: 2px solid #9e9e9e;
+}
+
+[type="checkbox"].filled-in:checked + span:not(.lever):after {
+    background-color: #9e9e9e;
+    border-color: #9e9e9e;
+}
+
+/* Poprawki dla lepszej widoczności w czarno-białym */
+.task-title {
+    color: #ffffff;
+}
+
+/* Style dla ikon w czarno-białym */
+.material-icons {
+    color: inherit;
+}
+
+/* Poprawki dla lepszego kontrastu */
+.card .card-content .card-title {
+    color: #ffffff;
+}
+
